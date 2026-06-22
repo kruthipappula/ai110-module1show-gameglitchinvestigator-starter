@@ -34,7 +34,7 @@ It wrote the code, ran away, and now the game is unplayable.
 - [Fixes Applied] 
    -Added range validation to ensure guesses stay within allowed difficulty range.
    -Fixed attempt counter so it starts at 0 and only increases after a valid guess.
-   -Added tests and verified game logic using pytest.
+   -Added tests and verified various states of game logic using pytest
 
 ## 📸 Demo Walkthrough
 
