@@ -1,26 +1,26 @@
-def get_range_for_difficulty(difficulty: str):
-    """Return (low, high) inclusive range for a given difficulty."""
-    raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
+"""
+ Logic utilities for the guessing game.
 
-
-def parse_guess(raw: str):
-    """
-    Parse user input into an int guess.
-
-    Returns: (ok: bool, guess_int: int | None, error_message: str | None)
-    """
-    raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
+This module intentionally contains only two functions used by the app/tests:
+- check_guess(guess, secret) -> "Win" | "Too High" | "Too Low"
+- get_hint_message(outcome) -> user-facing hint string
+"""
 
 
 def check_guess(guess, secret):
-    """
-    Compare guess to secret and return (outcome, message).
+    g, s = int(guess), int(secret)
+    if g == s:
+        return "Win"
+    if g > s:
+        return "Too High"
+    return "Too Low"
 
-    outcome examples: "Win", "Too High", "Too Low"
-    """
-    raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
 
-
-def update_score(current_score: int, outcome: str, attempt_number: int):
-    """Update score based on outcome and attempt number."""
-    raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
+def get_hint_message(outcome):
+    if outcome == "Win":
+        return "🎉 Correct!"
+    if outcome == "Too High":
+        return "📉 Go LOWER!"
+    if outcome == "Too Low":
+        return "📈 Go HIGHER!"
+    return ""

@@ -25,29 +25,43 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- [Game Purpose] The purpose of this game is to let the user guess a randomly generated secret number within a set number of attempts. The game provides hints after each guess and keeps track of the user's score throughout the game.
+- [Bugs Found] 
+   -The attempt counter started at 1 instead of 0.
+   -Invalid inputs used an attempt even when guess was not valid.
+   -Incorect hints displayed as would say "Go LOWER!" when secret number is higher and vice versa
+   -Secret number could be generated outside expected range of 1 to 100.
+- [Fixes Applied] 
+   -Added range validation to ensure guesses stay within allowed difficulty range.
+   -Fixed attempt counter so it starts at 0 and only increases after a valid guess.
+   -Added tests and verified game logic using pytest.
 
 ## 📸 Demo Walkthrough
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. The user starts the game and selects difficulty level from the dropdown menu in sidebar.
+2. The game generates a secret number and displays the allowed range and remaining number of attempts.
+3. The user enters a guess that is lower than the secret number and receives the "Go HIGHER!" hint.
+4. The user enters a guess that is higher than the secret number and receives the "Go LOWER!" hint.
+5. The user continues guessing until the correct number is entered within the allowed number of guesses.
+6. The game displays a winning message, reveals the secret number, and shows the final score.
 
-**Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
+**Screenshot** ![alt text](image.png)
 
 ## 🧪 Test Results
 
-```
-# Paste your pytest output here, e.g.:
-# pytest tests/
-# ========================= X passed in 0.XXs =========================
-```
+================================== test session starts ===================================
+platform win32 -- Python 3.13.0, pytest-9.1.0, pluggy-1.6.0
+rootdir: C:\Users\srikr\OneDrive\Desktop\.vscode\CodePath\ai110-module1show-gameglitchinvestigator-starter
+plugins: anyio-4.13.0
+collected 3 items                                                                         
+
+tests\test_game_logic.py ...                                                        [100%]
+
+=================================== 3 passed in 0.06s ====================================
+PS C:\Users\srikr\OneDrive\Desktop\.vscode\CodePath\ai110-module1show-gameglitchinvestigator-starter> 
+
 
 ## 🚀 Stretch Features
 
